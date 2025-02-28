@@ -1,13 +1,12 @@
 ---
-import "../styles/global.css";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from "../components/Header.jsx";
 ---
 
-<html>
-  <head>
-    <title>Test Tailwind</title>
-  </head>
-  <body class="bg-red-500 text-white">
-    <h1 class="text-3xl font-bold">Si ce texte est rouge, Tailwind fonctionne !</h1>
-  </body>
-</html>
+<BaseLayout>
+	<Header client:load />
+	<main>
 
+
+	</main>
+</BaseLayout>
