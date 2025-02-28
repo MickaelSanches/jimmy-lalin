@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+import siteConfig from "../config.js";
+---
+
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={siteConfig.metaDescription} />
+    <meta name="keywords" content={siteConfig.metaKeywords} />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteConfig.url} />
+    <meta property="og:title" content={siteConfig.title} />
+    <meta property="og:description" content={siteConfig.metaDescription} />
+    <meta property="og:image" content={siteConfig.ogImage} />
+    
+    <!-- Twitter SEO -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteConfig.title} />
+    <meta name="twitter:description" content={siteConfig.metaDescription} />
+    <meta name="twitter:image" content={siteConfig.ogImage} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={siteConfig.url} />
+    
+    <!-- Structured Data JSON-LD for SEO -->
+    <script type="application/ld+json">
+        {JSON.stringify(siteConfig.structuredData)}
+    </script>
+    
+    <title>{siteConfig.title}</title>
+</head>
+<body class="font-sans bg-light text-dark">
+    <slot />
+</body>
+</html>
