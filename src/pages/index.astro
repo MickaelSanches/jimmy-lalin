@@ -3,8 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Carousel from "../components/Carousel.jsx";
-
+import HeroSection from "../components/HeroSection.jsx";
 ---
+
 <BaseLayout>
   <body class="relative">
     <div class="bg-circle-left"></div>
@@ -13,6 +14,7 @@ import Carousel from "../components/Carousel.jsx";
 	<main>
     <section>
       <Carousel client:load />
+      <HeroSection client:load />
     </section>
 	</main>
   <Footer client:load />
