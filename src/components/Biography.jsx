@@ -72,7 +72,7 @@ const BiographySlider = () => {
         />
         <div className="absolute inset-0 bg-black/60 z-10" />
 
-        <div className="absolute z-20 top-[50%] md:top-1/4 left-4 md:left-10 text-white max-w-[95%] md:max-w-md">
+        <div className="absolute z-20 top-[45%] md:top-1/4 left-4 md:left-10 text-white max-w-[95%] md:max-w-md">
           {item.subtitle && (
             <p className="text-xs md:text-base font-light flex items-center mb-1 md:mb-2">
               <span className="mr-1 md:mr-2">📍</span> {item.subtitle}
