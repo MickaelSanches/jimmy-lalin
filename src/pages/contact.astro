@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import Contacts from "../components/Contact.jsx";
+import Logo from "../components/LogoCarousel.jsx";
+---
+
+<BaseLayout>
+  <body class="relative">
+    <div class="bg-circle-left"></div>
+    <div class="bg-circle-right"></div>
+    <Header client:load />
+    <main>
+      <section>
+        <Contacts client:load />
+        <Logo client:load />
+      </section>
+    </main>
+    <Footer client:load />
+  </body></BaseLayout
+>
