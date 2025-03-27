@@ -49,21 +49,37 @@ const Combats = () => {
 
       <div className="flex justify-center items-center relative mx-auto max-w-lg sm:max-w-xl lg:max-w-4xl">
         {/* Bouton Précédent */}
-        <button onClick={prevSlide} className="absolute left-2 sm:left-4 bg-[#FFD700] text-black p-3 rounded-full hover:scale-110 transition">
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 sm:left-4 bg-[#FFD700] text-black p-3 rounded-full hover:scale-110 transition"
+        >
           ❮
         </button>
 
         {/* Combat Actuel */}
         <div className="w-full bg-dark p-8 rounded-xl shadow-lg text-center border-2 border-secondary">
-          <img src={combats[currentIndex].image} alt="Combat" className="w-full h-60 object-cover rounded-lg mb-4" />
-          <h3 className="text-2xl font-bold">{combats[currentIndex].adversaire}</h3>
-          <p className="text-gray-400">{combats[currentIndex].date} - {combats[currentIndex].lieu}</p>
-          <p className="text-lg font-semibold text-[#FFD700]">{combats[currentIndex].resultat}</p>
+          <img
+            src={combats[currentIndex].image}
+            alt="Combat"
+            className="w-full h-60 object-cover rounded-lg mb-4"
+          />
+          <h3 className="text-2xl font-bold">
+            {combats[currentIndex].adversaire}
+          </h3>
+          <p className="text-gray-400">
+            {combats[currentIndex].date} - {combats[currentIndex].lieu}
+          </p>
+          <p className="text-lg font-semibold text-[#FFD700]">
+            {combats[currentIndex].resultat}
+          </p>
           <p className="text-gray-400">Stats: {combats[currentIndex].stats}</p>
         </div>
 
         {/* Bouton Suivant */}
-        <button onClick={nextSlide} className="absolute right-2 sm:right-4 bg-[#FFD700] text-black p-3 rounded-full hover:scale-110 transition">
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 sm:right-4 bg-[#FFD700] text-black p-3 rounded-full hover:scale-110 transition"
+        >
           ❯
         </button>
       </div>
@@ -73,7 +89,9 @@ const Combats = () => {
         {combats.map((_, index) => (
           <span
             key={index}
-            className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-[#FFD700]" : "bg-gray-500"} transition`}
+            className={`w-3 h-3 rounded-full ${
+              index === currentIndex ? "bg-[#FFD700]" : "bg-gray-500"
+            } transition`}
           />
         ))}
       </div>

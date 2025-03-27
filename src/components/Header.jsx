@@ -33,7 +33,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              href="/combat"
+              href="/combats"
               className="bg-black text-[#D1BB34] font-bold italic px-6 py-3 rounded-lg hover:bg-[#D1BB34] hover:text-black transition"
             >
               Combats
@@ -41,7 +41,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              href="/biographie"
+              href="/biography"
               className="bg-black text-[#D1BB34] font-bold italic px-6 py-3 rounded-lg hover:bg-[#D1BB34] hover:text-black transition"
             >
               Biographie
@@ -93,13 +93,13 @@ const Header = () => {
           Accueil
         </a>
         <a
-          href="/combat"
+          href="/combats"
           className="text-center hover:text-[#D1BB34] transition"
         >
           Combats
         </a>
         <a
-          href="/biographie"
+          href="/biography"
           className="text-center hover:text-[#D1BB34] transition"
         >
           Biographie

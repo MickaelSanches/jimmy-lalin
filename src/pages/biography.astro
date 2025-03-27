@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import Biographie from "../components/Biography.jsx";
+
+---
+
+<BaseLayout>
+    <body class="relative">
+      <div class="bg-circle-left"></div>
+      <div class="bg-circle-right"></div>
+      <Header client:load />
+      <main>
+      <section>
+        <Biographie client:load />
+      </section>
+      </main>
+    <Footer client:load />
+  </BaseLayout>

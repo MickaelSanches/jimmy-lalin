@@ -29,9 +29,6 @@ const HeroSection = () => {
           <a href="/combats" className="px-6 py-3 text-lg font-bold uppercase bg-[#D1BB34] text-black rounded-lg shadow-md hover:bg-primary hover:text-secondary transition">
             Voir les combats
           </a>
-          <a href="#" className="px-6 py-3 text-lg font-bold uppercase border border-[#D1BB34] text-[#D1BB34] rounded-lg hover:bg-primary hover:text-secondary transition">
-            Suivez l’ascension
-          </a>
         </div>
       </div>
     </section>

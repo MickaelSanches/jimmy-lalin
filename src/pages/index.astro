@@ -4,7 +4,7 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Carousel from "../components/Carousel.jsx";
 import HeroSection from "../components/HeroSection.jsx";
-
+import PreviewBio from "../components/PreviewBiography.jsx";
 ---
 
 <BaseLayout>
@@ -15,6 +15,7 @@ import HeroSection from "../components/HeroSection.jsx";
 	<main>
     <section>
       <Carousel client:load />
+      <PreviewBio client:load />
       <HeroSection client:load />
     </section>
 	</main>
