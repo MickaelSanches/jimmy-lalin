@@ -9,7 +9,7 @@ const Footer = () => {
               <h3 className="text-secondary text-lg font-bold mb-4">Jimmy Lalin</h3>
               <ul>
                 <li>
-                  <a href="/legal" className="text-white hover:text-[#D1BB34] transition">
+                  <a href="/legalpage" className="text-white hover:text-[#D1BB34] transition">
                     Conditions d'utilisation & Politique de confidentialité
                   </a>
                 </li>
@@ -26,7 +26,7 @@ const Footer = () => {
               <h3 className="text-secondary text-lg font-bold mb-4">Ressources</h3>
               <ul>
                 <li>
-                  <a href="/faq" className="text-white hover:text-[#D1BB34] transition">
+                  <a href="/faq" className="text-white hover:text-secondary transition">
                     FAQ
                   </a>
                 </li>
