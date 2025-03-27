@@ -3,15 +3,14 @@
   color: #010101;
   margin: 0;
   padding: 0;
-  height: 70vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .swiper {
-  padding-top: 50px;
-  padding-bottom: 140px;
+  padding-top: 140px;
 }
 
 .swiper .swiper-slide {

@@ -15,6 +15,7 @@ const Header = () => {
           <img
             src="/img/jlheader.webp"
             alt="Jimmy Lalin"
+            loading="lazy"
             className="object-cover w-full h-full"
           />
         </div>

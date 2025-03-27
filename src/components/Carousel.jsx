@@ -6,12 +6,18 @@ import "swiper/css/effect-coverflow";
 import '../styles/Carousel.css';
 
 const slides = [
-  "/img/IMG_0333.jpeg",
-  "/img/IMG_0334.jpeg",
-  "/img/IMG_0335.jpeg",
-  "/img/IMG_0336.jpeg",
-  "/img/IMG_0337.jpeg",
-  "/img/IMG_0338.jpeg",
+  "/img/logo.webp",
+  "/img/19.webp",
+  "/img/15.webp",
+  "/img/16.webp",
+  "/img/17.webp",
+  "/img/18.webp",
+  "/img/14.webp",
+  "/img/13.webp",
+  "/img/12.webp",
+  "/img/11.webp",
+  "/img/10.webp",
+  "/img/9.webp",
 ];
 
 const Carousel = () => {
