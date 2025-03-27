@@ -3,30 +3,49 @@ import { useState } from "react";
 const combats = [
   {
     id: 1,
-    image: "/img/combat1.webp",
-    adversaire: "John Doe",
-    date: "12 Mars 2025",
-    lieu: "Paris, France",
-    resultat: "Victoire - KO",
-    stats: "10-2-1",
+    image: "/img/15.webp",
+    adversaire: "Giorgi Khaduri",
+    date: "24 Mars 2024",
+    lieu: "Aix-les-Bains, France",
+    resultat: "Victoire - TKO",
+    stats: "1-0-0",
   },
   {
     id: 2,
-    image: "/img/combat2.webp",
-    adversaire: "Carlos Mendes",
-    date: "25 Février 2025",
-    lieu: "Londres, UK",
-    resultat: "Victoire - Décision",
-    stats: "11-2-1",
+    image: "/img/18.webp",
+    adversaire: "Marko Petrovic",
+    date: "25 Mai 2024",
+    lieu: "Gaillard, France",
+    resultat: "Défaite - TKO",
+    stats: "1-1-0",
   },
   {
     id: 3,
-    image: "/img/combat3.webp",
-    adversaire: "Mike Tyson Jr",
-    date: "5 Janvier 2025",
-    lieu: "Las Vegas, USA",
-    resultat: "Défaite - Décision",
-    stats: "11-3-1",
+    image: "/img/20.webp",
+    adversaire: "Giorgi Muktiashvili",
+    date: "24 Novembre 2024",
+    lieu: "Albertville, France",
+    resultat: "Victoire - W-KO",
+    stats: "2-1-0",
+  },
+  {
+    id: 4,
+    image: "/img/21.webp",
+    adversaire: "Dimitri Tsiklauri",
+    date: "22 Février 2025",
+    lieu: "Gaillard, France",
+    resultat: "Victoire - W-KO",
+    stats: "3-1-0",
+  },
+  {
+    id: 5,
+    image: "/img/22.webp",
+    adversaire: "Ghenadie Gitlan",
+    date: "15 Mars 2025",
+    lieu: "Aix-les-Bains, France",
+    resultat: "Victoire - Décision",
+    notes: ["🇫🇷58-56🇲🇩", "🇫🇷58-56🇲🇩", "🇫🇷60-54🇲🇩"],
+    stats: "4-1-0",
   },
 ];
 
@@ -51,34 +70,42 @@ const Combats = () => {
         {/* Bouton Précédent */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 sm:left-4 bg-[#FFD700] text-black p-3 rounded-full hover:scale-110 transition"
+          className="w-10 h-10 absolute left-2 sm:left-4 bg-secondary text-black p-3 rounded-full flex items-center justify-center hover:scale-110 transition"
         >
           ❮
         </button>
 
         {/* Combat Actuel */}
-        <div className="w-full bg-dark p-8 rounded-xl shadow-lg text-center border-2 border-secondary">
-          <img
-            src={combats[currentIndex].image}
-            alt="Combat"
-            className="w-full h-60 object-cover rounded-lg mb-4"
-          />
-          <h3 className="text-2xl font-bold">
-            {combats[currentIndex].adversaire}
-          </h3>
-          <p className="text-gray-400">
-            {combats[currentIndex].date} - {combats[currentIndex].lieu}
-          </p>
-          <p className="text-lg font-semibold text-[#FFD700]">
-            {combats[currentIndex].resultat}
-          </p>
-          <p className="text-gray-400">Stats: {combats[currentIndex].stats}</p>
-        </div>
+<div className="w-full bg-dark p-8 rounded-xl shadow-lg text-center border-2 border-secondary space-y-4">
+  <div className="mb-6">
+    <img
+      src={combats[currentIndex].image}
+      alt={`Combat ${combats[currentIndex].adversaire}`}
+      loading="lazy"
+      className="w-full h-auto object-contain rounded-lg shadow-lg"
+    />
+  </div>
+  <h3 className="text-2xl font-bold">
+    {combats[currentIndex].adversaire}
+  </h3>
+  <p className="text-gray-400">
+    {combats[currentIndex].date} - {combats[currentIndex].lieu}
+  </p>
+  <p className="text-lg font-semibold text-secondary">
+    {combats[currentIndex].resultat}
+  </p>
+  {Array.isArray(combats[currentIndex].notes) && (
+    <p className="text-lg font-semibold text-light">
+      {combats[currentIndex].notes.join(" / ")}
+    </p>
+  )}
+  <p className="text-gray-400">Stats: {combats[currentIndex].stats}</p>
+</div>
 
         {/* Bouton Suivant */}
         <button
           onClick={nextSlide}
-          className="absolute right-2 sm:right-4 bg-[#FFD700] text-black p-3 rounded-full hover:scale-110 transition"
+          className="w-10 h-10 absolute right-2 sm:right-4 bg-secondary text-black p-3 rounded-full flex items-center justify-center hover:scale-110 transition"
         >
           ❯
         </button>
@@ -90,7 +117,7 @@ const Combats = () => {
           <span
             key={index}
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-[#FFD700]" : "bg-gray-500"
+              index === currentIndex ? "bg-secondary" : "bg-gray-500"
             } transition`}
           />
         ))}
