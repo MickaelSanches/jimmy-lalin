@@ -2,17 +2,18 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen flex items-center justify-center text-white">
-      {/* Vidéo ou Image en arrière-plan */}
-      <div className="absolute inset-0">
+    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center text-white">
+      {/* Vidéo en arrière-plan plein écran */}
+      <div className="absolute inset-0 z-0">
         <video
-          className="w-full h-full object-cover opacity-30"
+          className="min-w-full min-h-full absolute top-0 left-0 object-cover opacity-30 pointer-events-none"
           autoPlay
           loop
           muted
           playsInline
-          src="/videos/boxing-intro.mp4"
-        ></video>
+          preload="none"
+          src="https://d7hj6vdod8jfd.cloudfront.net/jimmy-cinema.mp4"
+        />
       </div>
 
       {/* Contenu principal */}
@@ -23,10 +24,13 @@ const HeroSection = () => {
         <p className="mt-4 text-lg md:text-2xl text-primary italic opacity-90">
           Entraînement. Détermination. Victoire.
         </p>
-        
+
         {/* Boutons CTA */}
         <div className="mt-6 flex flex-col md:flex-row gap-4 justify-center">
-          <a href="/combats" className="px-6 py-3 text-lg font-bold uppercase bg-[#D1BB34] text-black rounded-lg shadow-md hover:bg-primary hover:text-secondary transition">
+          <a
+            href="/combats"
+            className="px-6 py-3 text-lg font-bold uppercase bg-secondary text-black rounded-lg shadow-md hover:bg-primary hover:text-secondary transition"
+          >
             Voir les combats
           </a>
         </div>

@@ -29,7 +29,6 @@ const Carousel = () => {
         slidesPerView="auto"
         effect="coverflow"
         loop={true}
-        loopedSlides={slides.length} // Assurez-vous de cloner assez de slides
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
