@@ -30,7 +30,7 @@ const BiographyPreview = () => {
           viewport={{ once: true }}
           className="text-lg md:text-xl opacity-80 max-w-3xl mx-auto"
         >
-          Chaque champion a une histoire. Découvrez le parcours, les combats, et
+          Chaque athlète a une histoire. Découvrez le parcours, les combats, et
           la détermination qui ont forgé un combattant prêt à tout pour atteindre
           le sommet.
         </motion.p>
