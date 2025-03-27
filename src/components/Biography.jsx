@@ -40,7 +40,7 @@ const biographyData = [
     subtitle: "Aix-les-Bains",
     text: "En janvier 2024, avec un palmarès de 35 combats, dont 26 victoires et 9 défaites, Jimmy se classe 3ᵉ à la coupe de France. Cette même année, il passe professionnel et dispute son premier combat le 16 mars au casino d’Aix-les-Bains. Un tournant décisif s’opère grâce au travail réalisé avec un préparateur mental, qui l’a aidé à mieux gérer ses émotions, canaliser son énergie, et franchir un véritable cap mental et émotionnel vers le haut niveau.",
     image: "/img/3.webp",
-    nextImage: "/img/logo.webp",
+    nextImage: "/logos/logo2.webp",
     gradient: "from-dark to-secondary",
   },
 ];

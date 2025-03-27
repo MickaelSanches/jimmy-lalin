@@ -6,7 +6,7 @@ import "swiper/css/effect-coverflow";
 import '../styles/Carousel.css';
 
 const slides = [
-  "/img/logo.webp",
+  "/logos/logo1.webp",
   "/img/19.webp",
   "/img/15.webp",
   "/img/16.webp",
