@@ -7,7 +7,7 @@ const biographyData = [
   {
     title: "Jimmy Lalin : Un Parcours de Vie et de Boxe",
     subtitle: "Né le 19 avril 1996 à Argenteuil, en France",
-    text: "Jimmy Lalin a grandi en banlieue parisienne, dans une famille nombreuse et modeste. Sa mère, antillaise, était caissière, et son père, originaire du nord de la France, facteur. Il a vécu une enfance marquée par des tensions familiales, notamment des violences verbales et parfois physiques, ainsi que par une éducation stricte, ponctuée de punitions. Malgré ces difficultés, Jimmy garde en mémoire de nombreux moments heureux.",
+    text: "Jimmy Lalin a grandi en banlieue parisienne, dans une famille nombreuse et modeste. Sa mère, antillaise, était caissière, et son père, originaire du nord de la France, facteur. Il a vécu une enfance marquée par des tensions familiales, notamment des violences verbales et parfois physiques, ainsi que par une éducation stricte. Malgré ces difficultés, Jimmy garde en tête de nombreux moments heureux et part du principe que cela a contribué à lui forger un mental à toute épreuve.",
     image: "/img/8.webp",
     nextImage: "/img/7.webp",
     gradient: "from-primary to-dark",
@@ -30,7 +30,7 @@ const biographyData = [
   {
     title: "Découverte de la Boxe",
     subtitle: "Aix-les-Bains",
-    text: "À 22 ans, un emploi de surveillant dans un collège change sa vie. En discutant avec les élèves, il découvre la boxe et s’inscrit dans un club à Aix-les-Bains en janvier 2018. Son premier combat amateur en 2019 est un échec, principalement en raison de problèmes de gestion de la respiration.",
+    text: "À 22 ans, un emploi de surveillant dans un collège change sa vie. En discutant avec les élèves, il découvre la boxe et s’inscrit dans un club à Aix-les-Bains en janvier 2018. Son premier combat amateur en 2019 est un échec, principalement en raison de problèmes de gestion de ses émotions.",
     image: "/img/6.webp",
     nextImage: "/img/3.webp",
     gradient: "bg-[#BDD2FF]",
@@ -38,7 +38,7 @@ const biographyData = [
   {
     title: "Évolution et Succès vers une carrière Professionnelle",
     subtitle: "Aix-les-Bains",
-    text: "En janvier 2024, avec un palmarès de 33 combats, dont 24 victoires et 9 défaites, il se classe 3ème à la coupe de France. En 2024, il passe professionnel et dispute son premier combat le 16 mars au casino d’Aix-les-Bains.",
+    text: "En janvier 2024, avec un palmarès de 35 combats, dont 26 victoires et 9 défaites, Jimmy se classe 3ᵉ à la coupe de France. Cette même année, il passe professionnel et dispute son premier combat le 16 mars au casino d’Aix-les-Bains. Un tournant décisif s’opère grâce au travail réalisé avec un préparateur mental, qui l’a aidé à mieux gérer ses émotions, canaliser son énergie, et franchir un véritable cap mental et émotionnel vers le haut niveau.",
     image: "/img/3.webp",
     nextImage: "/img/logo.webp",
     gradient: "from-dark to-secondary",
@@ -72,7 +72,7 @@ const BiographySlider = () => {
         />
         <div className="absolute inset-0 bg-black/60 z-10" />
 
-        <div className="absolute z-20 top-[55%] md:top-1/4 left-4 md:left-10 text-white max-w-[95%] md:max-w-md">
+        <div className="absolute z-20 top-[50%] md:top-1/4 left-4 md:left-10 text-white max-w-[95%] md:max-w-md">
           {item.subtitle && (
             <p className="text-xs md:text-base font-light flex items-center mb-1 md:mb-2">
               <span className="mr-1 md:mr-2">📍</span> {item.subtitle}
