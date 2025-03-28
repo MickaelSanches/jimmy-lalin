@@ -12,6 +12,7 @@ const slides = [
   "/img/16.webp",
   "/img/17.webp",
   "/img/18.webp",
+  "/img/1.webp",
   "/img/14.webp",
   "/img/13.webp",
   "/img/12.webp",
