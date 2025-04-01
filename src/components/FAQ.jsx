@@ -9,7 +9,7 @@ const faqData = [
   {
     question: "Où s’entraîne Jimmy Lalin ?",
     answer:
-      "Jimmy s’entraîne au club France Boxe Aix-les-Bains, un centre réputé pour la qualité de ses entraînements et son encadrement professionnel. 📍 Adresse exacte : 1 Rue du Bon Pasteur, 73100 Aix-les-Bains, France",
+      "Jimmy s’entraîne au club France Boxe Aix-les-Bains, un centre réputé pour la qualité de ses entraînements et son encadrement professionnel. 📍 Adresse exacte : 1445 Boulevard Lepic, 73100 Aix-les-Bains, France",
   },
   {
     question: "Quels sont les palmarès et statistiques de Jimmy Lalin ?",
