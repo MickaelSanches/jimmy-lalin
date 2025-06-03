@@ -47,6 +47,15 @@ const combats = [
     notes: ["🇫🇷58-56🇲🇩", "🇫🇷58-56🇲🇩", "🇫🇷60-54🇲🇩"],
     stats: "4-1-0",
   },
+  {
+    id: 6,
+    image: "/img/23.webp",
+    adversaire: "Sofien Khaldi",
+    date: "12 Juin 2025",
+    lieu: "Bron, France",
+    resultat: "SOON",
+    stats: "4-1-0",
+  },
 ];
 
 const Combats = () => {

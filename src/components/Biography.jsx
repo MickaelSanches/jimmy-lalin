@@ -7,7 +7,7 @@ const biographyData = [
   {
     title: "Jimmy Lalin : Un Parcours de Vie et de Boxe",
     subtitle: "Né le 19 avril 1996 à Argenteuil, en France",
-    text: "Jimmy Lalin a grandi en banlieue parisienne, dans une famille nombreuse et modeste. Sa mère, antillaise, était caissière, et son père, originaire du nord de la France, facteur. Il a vécu une enfance marquée par des tensions familiales, notamment des violences verbales et parfois physiques, ainsi que par une éducation stricte. Malgré ces difficultés, Jimmy garde en tête de nombreux moments heureux et part du principe que cela a contribué à lui forger un mental à toute épreuve.",
+    text: "Jimmy Lalin a grandi en banlieue parisienne, dans une famille nombreuse et modeste, comptant 4 garçons et ses parents. Sa mère antillaise était caissière et son père, originaire du nord de la France, facteur. Désormais sa mère est aide-soignante en Guadeloupe et son père photographe en banlieue parisienne. Jimmy a vécu une enfance marquée par des tensions familiales, ainsi que par une éducation stricte mais pleine de belles valeurs qui lui servent encore aujourd’hui. Il garde en tête de nombreux moments heureux et part du principe que ces moments difficiles ont contribué à lui forger un mental à toute épreuve. « Rien n’arrive par hasard » est un de ses mantras !",
     image: "/img/family.webp",
     nextImage: "/img/7.webp",
     gradient: "from-primary to-dark",
@@ -72,7 +72,7 @@ const BiographySlider = () => {
         />
         <div className="absolute inset-0 bg-black/60 z-10" />
 
-        <div className="absolute z-20 top-[45%] md:top-1/4 left-4 md:left-10 text-white max-w-[95%] md:max-w-md">
+        <div className="absolute z-20 top-[35%] md:top-1/4 left-4 md:left-10 text-white max-w-[95%] md:max-w-md">
           {item.subtitle && (
             <p className="text-xs md:text-base font-light flex items-center mb-1 md:mb-2">
               <span className="mr-1 md:mr-2">📍</span> {item.subtitle}

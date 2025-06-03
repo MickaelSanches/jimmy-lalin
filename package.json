@@ -9,9 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.2",
+    "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
-    "astro": "^5.5.5",
+    "astro": "^5.8.1",
     "framer-motion": "^12.4.10",
     "lucide-react": "^0.484.0",
     "react": "^19.0.0",
