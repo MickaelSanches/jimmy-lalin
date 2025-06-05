@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import siteConfig from "../config.js";
+import FightPopup from "../components/FightPopup.jsx";
 ---
 
 <html lang="fr">
@@ -37,6 +38,7 @@ import siteConfig from "../config.js";
     <title>{siteConfig.title}</title>
 </head>
 <body class="font-sans bg-light text-dark">
+    <FightPopup client:load />
     <slot />
 </body>
 </html>
