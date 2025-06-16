@@ -53,8 +53,8 @@ const combats = [
     adversaire: "Sofien Khaldi",
     date: "12 Juin 2025",
     lieu: "Bron, France",
-    resultat: "SOON",
-    stats: "4-1-0",
+    resultat: "Nul - Décision",
+    stats: "4-1-1",
   },
 ];
 

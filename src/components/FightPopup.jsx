@@ -22,19 +22,19 @@ const FightPopup = () => {
         >
           ×
         </button>
-        <h2 className="text-xl font-bold mb-4 text-dark">Prochain Combat !</h2>
+        <h2 className="text-xl font-bold mb-4 text-dark">2ème édition du trophée des champions aixois !</h2>
         <img
-          src="/img/23.webp"
+          src="/img/trophéeaixois.webp"
           alt="Affiche du combat"
           className="w-full h-auto rounded-md mb-4"
         />
         <a
-          href="https://www.helloasso.com/associations/bron-boxing-academy/evenements/championnat-wba?fbclid=PAQ0xDSwKsP2pleHRuA2FlbQIxMQABpzaaJFd13iaLWRoQ8UGyVWrhkpRYYZb9v_MgctYZeMsln8shubQQtjTs1CU1_aem_HjK3kM7gZznvD7hbc4ny3Q"
+          href="https://www.aixlesbains.fr/annuaires/zoom-sur/detail/trophee-des-champions-aixois"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-secondary text-black font-bold py-2 px-4 rounded hover:bg-black hover:text-secondary transition"
         >
-          Réserver vos places 🎟️
+          Votez ici !
         </a>
       </div>
     </div>
