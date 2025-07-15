@@ -4,9 +4,11 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import Contacts from "../components/Contact.jsx";
 import Logo from "../components/LogoCarousel.jsx";
+import NewsTicker from "../components/NewsTicker.jsx";
 ---
 
-<BaseLayout>
+<BaseLayout>  
+  <NewsTicker client:load />
   <body class="relative">
     <div class="bg-circle-left"></div>
     <div class="bg-circle-right"></div>

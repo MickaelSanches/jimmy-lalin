@@ -16,7 +16,7 @@ const combats = [
     adversaire: "Marko Petrovic",
     date: "25 Mai 2024",
     lieu: "Gaillard, France",
-    resultat: "Défaite - TKO",
+    resultat: "Défaite",
     stats: "1-1-0",
   },
   {
@@ -25,7 +25,7 @@ const combats = [
     adversaire: "Giorgi Muktiashvili",
     date: "24 Novembre 2024",
     lieu: "Albertville, France",
-    resultat: "Victoire - W-KO",
+    resultat: "Victoire - KO dans les 10 premières secondes, 1er round",
     stats: "2-1-0",
   },
   {
@@ -49,11 +49,12 @@ const combats = [
   },
   {
     id: 6,
-    image: "/img/23.webp",
+    image: "/img/24.webp",
     adversaire: "Sofien Khaldi",
     date: "12 Juin 2025",
     lieu: "Bron, France",
-    resultat: "Nul - Décision",
+    resultat: "Nul - Décision majoritaire",
+    notes: ["2 juges 38-38", "1 juge 39-37 pour Jimmy Lalin"],
     stats: "4-1-1",
   },
 ];
