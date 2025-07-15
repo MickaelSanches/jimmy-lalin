@@ -5,9 +5,12 @@ import Footer from "../components/Footer.jsx";
 import Carousel from "../components/Carousel.jsx";
 import HeroSection from "../components/HeroSection.jsx";
 import PreviewBio from "../components/PreviewBiography.jsx";
+import NewsTicker from "../components/NewsTicker.jsx";
+import HighlightsSection from "../components/HighlightsSection.jsx";
 ---
 
 <BaseLayout>
+  <NewsTicker client:load />
   <body class="relative">
     <div class="bg-circle-left"></div>
     <div class="bg-circle-right"></div>
@@ -16,6 +19,7 @@ import PreviewBio from "../components/PreviewBiography.jsx";
     <section>
       <Carousel client:load />
       <PreviewBio client:load />
+      <HighlightsSection client:load />
       <HeroSection client:load />
     </section>
 	</main>
