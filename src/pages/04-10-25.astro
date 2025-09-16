@@ -1,0 +1,377 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from "../components/Header.jsx";
+import NewsTicker from "../components/NewsTicker.jsx";
+import Footer from "../components/Footer.jsx";
+
+// === CONFIG ÉVÉNEMENT ===
+const EVENT_DATE_ISO = "2025-10-04T19:00:00+02:00";
+
+const TICKETS_URL = import.meta.env.PUBLIC_TICKETS_URL
+  || "https://billetterie.adidasarena.com/fr/manifestation/parnasse-vs-petitjean-billet/idmanif/630694";
+const STREAM_URL  = import.meta.env.PUBLIC_STREAM_URL  || "https://www.rmcsport.tv/";
+
+// === IMAGES ===
+const OG_IMAGE   = "/img/og/2025-10-04-lalin-safe-1200x630.jpg";
+const HERO_IMAGE = "/img/presse1.webp";
+const OPP_IMAGE  = "/img/affichebaraia.webp";
+
+// === JSON-LD ===
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Jimmy Lalin vs Chadi Baraia",
+  "startDate": EVENT_DATE_ISO,
+  "location": { "@type": "Place", "name": "Adidas Arena", "address": "Rue Curial, 75019 Paris, France" },
+  "organizer": { "@type": "Organization", "name": "100% Fight" },
+  "performer": [{ "@type": "Person", "name": "Jimmy Lalin" }, { "@type": "Person", "name": "Chadi Baraia" }],
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "image": [OG_IMAGE],
+  "description": "Jimmy Lalin boxe sur la carte principale du Parnasse vs Petitjean à l'Adidas Arena (Paris). Diffusé en direct sur RMC Sport 1.",
+  "broadcastOfEvent": { "@type": "BroadcastEvent", "isLiveBroadcast": true, "name": "RMC Sport 1", "url": STREAM_URL },
+  ...(TICKETS_URL ? {
+    "offers": {
+      "@type": "Offer",
+      "url": `${TICKETS_URL}?utm_source=site_jimmy&utm_medium=seo&utm_campaign=2025-10-04`,
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "EUR",
+      "price": "dès 29€"
+    }
+  } : {})
+};
+
+// === SHARE HELPERS ===
+const pageUrl = "https://jimmylalin.com/combats/2025-10-04";
+const shareText = "Jimmy Lalin vs Chadi Baraia – 04 oct. 2025 – Adidas Arena (Paris) – Live RMC Sport 1";
+const xShare  = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`;
+const fbShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+const waShare = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + pageUrl)}`;
+
+// === CALENDAR (Google) ===
+// 19:00 Paris (UTC+02) => 17:00Z ; fin 20:00Z (= 22:00 Paris) ~ 3h de plage
+const gcalStart = "20251004T170000Z";
+const gcalEnd   = "20251004T200000Z";
+const gcal = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Jimmy Lalin vs Chadi Baraia")}&dates=${gcalStart}/${gcalEnd}&details=${encodeURIComponent("Carte principale 100% Fight — Adidas Arena (Paris) — Live RMC Sport 1")}&location=${encodeURIComponent("Adidas Arena, Paris")}`;
+---
+
+<BaseLayout>
+  <NewsTicker client:load />
+  <body class="relative font-sans bg-light text-dark">
+    <div class="bg-circle-left"></div>
+    <div class="bg-circle-right"></div>
+
+    <Header client:load />
+
+    <main>
+
+      <!-- HERO (responsive picture + focus top) -->
+      <section class="relative isolate overflow-hidden bg-black">
+        <picture class="absolute inset-0 -z-10">
+          <!-- Mobile : presse2.webp -->
+          <source srcset="/img/presse2.webp" media="(max-width:640px)" type="image/webp" />
+          <!-- Desktop : presse1.webp -->
+          <source srcset="/img/presse1.webp" media="(min-width:641px)" type="image/webp" />
+          <img
+            src="/img/presse1.webp"
+            alt="Affiche officielle : Jimmy Lalin vs Chadi Baraia — Adidas Arena, Paris"
+            class="h-full w-full object-cover object-[30%_30%] opacity-70"
+            loading="lazy"
+          />
+        </picture>
+        
+        <div class="mx-auto max-w-7xl px-6 py-14 sm:py-20 md:py-24 lg:px-8">
+          <div class="mx-auto max-w-3xl text-center">
+            <p class="text-sm uppercase tracking-widest text-[#D1BB34]">Carte principale 100% Fight</p>
+            <h1 class="mt-2 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Jimmy Lalin <span class="text-[#D1BB34]">vs</span> Chadi Baraia
+            </h1>
+            <p class="mt-3 text-base text-gray-100">
+              Adidas Arena, Paris — <strong>samedi 04 octobre 2025</strong> — Diffusion <strong>RMC Sport 1</strong>.
+            </p>
+
+            <!-- CTAs (icônes SVG, pas d'emoji) -->
+            <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              {
+                TICKETS_URL
+                  ? <a href={`${TICKETS_URL}?utm_source=site_jimmy&utm_medium=hero&utm_campaign=2025-10-04`} target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#D1BB34] px-6 py-3 font-extrabold text-black transition hover:bg-white">
+                        <!-- ticket -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7h18M5 7v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7"/></svg>
+                        Réserver mes places
+                    </a>
+                  : <span class="inline-flex items-center justify-center gap-2 rounded-xl bg-white/15 px-6 py-3 font-semibold text-white">Billetterie bientôt</span>
+              }
+              <a href={STREAM_URL} target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white hover:text-black">
+                 <!-- play -->
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                 Regarder sur RMC Sport 1
+              </a>
+            </div>
+
+            <!-- Compte à rebours (cible: 04/10 19:00 Paris) -->
+            <div id="countdown" data-target={EVENT_DATE_ISO} class="mt-8 grid grid-cols-4 gap-2 text-white">
+              {["Jours", "Heures", "Min", "Sec"].map((label) => (
+                <div class="rounded-xl border border-white/20 py-4">
+                  <div class="text-3xl font-bold" data-slot="val">--</div>
+                  <div class="text-[11px] uppercase tracking-widest opacity-80">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTEXTE -->
+      <section class="bg-light">
+        <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+          <div class="grid items-start gap-10 md:grid-cols-3">
+            <div class="md:col-span-2">
+              <h2 class="text-2xl font-extrabold text-[#3F2876]">Le décor est planté</h2>
+              <p class="mt-3 text-dark/80">
+                À son retour de vacances fin août, un promoteur contacte la Team Lalin avec une opportunité impossible à refuser :
+                boxer sur la <strong>carte principale</strong> du combat <em>Parnasse vs Petitjean</em>, à l’<strong>Adidas Arena</strong> (Paris).
+                Une soirée <strong>100% Fight</strong> retransmise en direct sur <strong>RMC Sport 1</strong>.
+              </p>
+              <p class="mt-3 text-dark/80">
+                L’<strong>Adidas Arena</strong> peut accueillir jusqu’à 9&nbsp;000 personnes. En face : <strong>Chadi Baraia</strong>,
+                champion de France amateur 2023 (-75&nbsp;kg), ancien de l’équipe de France. Tout est réuni pour briller.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-3">
+                {
+                  TICKETS_URL
+                    ? <a href={`${TICKETS_URL}?utm_source=site_jimmy&utm_medium=context&utm_campaign=2025-10-04`} target="_blank" rel="noopener noreferrer"
+                         class="inline-flex items-center gap-2 rounded-lg bg-[#D1BB34] px-4 py-2 font-bold text-black hover:bg-black hover:text-[#D1BB34]">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7h18M5 7v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7"/></svg>
+                         Réserver maintenant
+                      </a>
+                    : <span class="rounded-lg bg-gray-200 px-4 py-2 font-semibold text-gray-600">Billetterie bientôt</span>
+                }
+                <a href={STREAM_URL} target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 font-semibold text-dark hover:bg-gray-50">
+                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                   Regarder sur RMC Sport 1
+                </a>
+              </div>
+            </div>
+
+            <!-- Encadré infos -->
+            <aside class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+              <h3 class="text-lg font-bold text-dark">Infos clés</h3>
+              <ul class="mt-3 space-y-2 text-sm text-dark/80">
+                <li><strong>Date :</strong> Samedi 04 octobre 2025</li>
+                <li><strong>Heure :</strong> 19:00 (heure de Paris)</li>
+                <li><strong>Lieu :</strong> Adidas Arena, Paris</li>
+                <li><strong>Organisation :</strong> 100% Fight</li>
+                <li><strong>Diffusion :</strong> RMC Sport 1 (live)</li>
+                <li><strong>Conf. de presse :</strong> Jeudi 11 sept. 2025 — Aubervilliers</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- REDIFF CONFÉRENCE DE PRESSE -->
+      <section class="bg-white">
+        <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+          <h2 class="text-2xl font-extrabold text-[#3F2876]">Conférence de presse (rediffusion)</h2>
+          <div class="mt-4 aspect-video w-full overflow-hidden rounded-2xl shadow">
+            <iframe
+              class="h-full w-full"
+              src="https://www.youtube.com/embed/FOoJDPBYaNQ?start=1738"
+              title="Rediffusion conférence de presse"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADVERSAIRE -->
+      <section class="bg-light">
+        <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+          <h2 class="text-2xl font-extrabold text-[#3F2876]">L’adversaire — Chadi Baraia</h2>
+          <div class="mt-6 grid gap-6 md:grid-cols-[260px,1fr]">
+            <img src={OPP_IMAGE} alt="Portrait de Chadi Baraia"
+                 class="h-[260px] w-full rounded-2xl object-cover md:h-full" loading="lazy" />
+            <div>
+              <ul class="grid grid-cols-1 gap-2 text-sm text-dark/85 sm:grid-cols-2">
+                <li><strong>Titre :</strong> Champion de France amateur 2023 (-75 kg)</li>
+                <li><strong>Équipe :</strong> Ex-Équipe de France</li>
+              </ul>
+              <p class="mt-4 text-dark/80">
+                Un profil solide du circuit amateur français. Un vrai test, parfait pour montrer le potentiel de Jimmy sur une scène majeure et face caméras.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRATIQUE / ACCÈS / TV / CALENDRIER -->
+      <section class="bg-white">
+        <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+          <div class="grid gap-8 md:grid-cols-3">
+            <div>
+              <h3 class="text-lg font-bold text-dark">Billetterie</h3>
+              <p class="mt-2 text-sm text-dark/80">Réserve tes places à l’<strong>Adidas Arena</strong>.</p>
+              {
+                TICKETS_URL
+                  ? <a href={`${TICKETS_URL}?utm_source=site_jimmy&utm_medium=pratique&utm_campaign=2025-10-04`} target="_blank" rel="noopener noreferrer"
+                       class="mt-3 inline-flex items-center gap-2 rounded-lg bg-[#D1BB34] px-4 py-2 font-bold text-black hover:bg-black hover:text-[#D1BB34]">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 7h18M5 7v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7"/></svg>
+                       Réserver
+                    </a>
+                  : <span class="mt-3 inline-flex rounded-lg bg-gray-200 px-4 py-2 font-semibold text-gray-600">Bientôt</span>
+              }
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">Diffusion TV</h3>
+              <p class="mt-2 text-sm text-dark/80">Le combat sera diffusé en direct sur <strong>RMC Sport 1</strong>.</p>
+              <a href={STREAM_URL} target="_blank" rel="noopener noreferrer"
+                 class="mt-3 inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2 font-semibold text-dark hover:bg-gray-50">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                 Regarder
+              </a>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">Calendrier</h3>
+              <p class="mt-2 text-sm text-dark/80">Ajoute l’événement à ton agenda et reçois un rappel.</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <a href={gcal}
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 rounded-lg bg-[#D1BB34] px-4 py-2 text-sm font-bold text-black hover:bg-black hover:text-[#D1BB34]">
+                   <!-- calendar -->
+                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-3V2h-2v2H10V2H8v2H5a2 2 0 0 0-2 2v3h18V6a2 2 0 0 0-2-2ZM3 20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V11H3v9Z"/></svg>
+                   Google Agenda
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRESSE / PARTAGE -->
+      <section class="bg-light">
+        <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+          <div class="grid gap-8 md:grid-cols-2">
+            <div>
+              <h2 class="text-2xl font-extrabold text-[#3F2876]">Espace Presse</h2>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-dark/80">
+                <li><a href="/img/affichebaraia.webp" class="underline hover:text-[#3F2876]">Affiche HD</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-dark">Partager</h3>
+              <div class="mt-3 flex flex-wrap items-center gap-3">
+                <!-- X / Twitter -->
+                <a href={xShare} target="_blank" rel="noopener noreferrer"
+                   aria-label="Partager sur X"
+                   class="flex h-11 w-11 items-center justify-center rounded-full border border-gray-300 hover:bg-gray-50">
+                  <img src="/icons/x.webp" alt="X" class="h-6 w-6" loading="lazy" />
+                </a>
+              
+                <!-- Facebook -->
+                <a href={fbShare} target="_blank" rel="noopener noreferrer"
+                   aria-label="Partager sur Facebook"
+                   class="flex h-11 w-11 items-center justify-center rounded-full border border-gray-300 hover:bg-gray-50">
+                  <img src="/icons/fb.webp" alt="Facebook" class="h-6 w-6" loading="lazy" />
+                </a>
+              
+                <!-- WhatsApp -->
+                <a href={waShare} target="_blank" rel="noopener noreferrer"
+                   aria-label="Partager sur WhatsApp"
+                   class="flex h-11 w-11 items-center justify-center rounded-full border border-gray-300 hover:bg-gray-50">
+                  <img src="/icons/wa.webp" alt="WhatsApp" class="h-6 w-6" loading="lazy" />
+                </a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTENAIRES (agrandis) -->
+      <section class="bg-white">
+        <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+          <h2 class="text-2xl font-extrabold text-[#3F2876]">Partenaires</h2>
+          <div class="mt-6 grid grid-cols-2 items-center gap-8 sm:grid-cols-4">
+            <a href="https://www.rmcsport.tv/" target="_blank" rel="noopener noreferrer"
+               aria-label="RMC Sport" title="RMC Sport">
+              <img src="/img/rmcsport.webp" alt="RMC Sport" class="h-16 w-auto opacity-90" loading="lazy" />
+            </a>
+          
+            <a href="https://100pfight.com/" target="_blank" rel="noopener noreferrer"
+               aria-label="100% Fight" title="100% Fight">
+              <img src="/img/100pfight.webp" alt="100% Fight" class="h-16 w-auto opacity-90" loading="lazy" />
+            </a>
+          
+            <a href="https://www.adidasarena.com/" target="_blank" rel="noopener noreferrer"
+               aria-label="Adidas Arena" title="Adidas Arena">
+              <img src="/img/adidasarena.webp" alt="Adidas Arena" class="h-16 w-auto opacity-90" loading="lazy" />
+            </a>
+          
+              <img src="/img/JL.webp" alt="Team Lalin" class="h-16 w-auto opacity-90" loading="lazy" />
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- JSON-LD -->
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
+
+      <!-- Sticky CTA mobile -->
+      <div class="fixed inset-x-0 bottom-0 z-40 bg-white/95 shadow-[0_-4px_20px_rgba(0,0,0,0.07)] backdrop-blur supports-[backdrop-filter]:backdrop-blur md:hidden">
+        <div class="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3">
+          {
+            TICKETS_URL
+              ? <a href={`${TICKETS_URL}?utm_source=site_jimmy&utm_medium=sticky&utm_campaign=2025-10-04`} target="_blank" rel="noopener noreferrer"
+                   class="flex-1 rounded-lg bg-[#D1BB34] px-4 py-3 text-center text-sm font-extrabold text-black">
+                   Réserver
+                </a>
+              : <span class="flex-1 rounded-lg bg-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600">Bientôt</span>
+          }
+          <a href={STREAM_URL} target="_blank" rel="noopener noreferrer"
+             class="flex-1 rounded-lg border border-gray-300 px-4 py-3 text-center text-sm font-semibold text-dark">
+            Regarder
+          </a>
+        </div>
+      </div>
+
+      <!-- SCRIPTS -->
+      <script is:raw>
+        (function () {
+          // COUNTDOWN (data-target = 2025-10-04T19:00:00+02:00)
+          var root = document.getElementById("countdown");
+          if (root) {
+            var targetIso = root.getAttribute("data-target");
+            var target = new Date(targetIso).getTime();
+            var slots = root.querySelectorAll('[data-slot="val"]');
+            function pad(n){return String(n).padStart(2,"0");}
+            function tick(){
+              var now = Date.now();
+              var ms = Math.max(0, target - now);
+              var sec = Math.floor(ms / 1000);
+              var days = Math.floor(sec / 86400);
+              var hours = Math.floor((sec % 86400) / 3600);
+              var minutes = Math.floor((sec % 3600) / 60);
+              var seconds = sec % 60;
+              var vals = [days, hours, minutes, seconds].map(pad);
+              slots.forEach(function(el, i){ el.textContent = vals[i] || "--"; });
+            }
+            tick();
+            var id = setInterval(tick, 1000);
+            window.addEventListener("pagehide", function(){ clearInterval(id); });
+          }
+        })();
+      </script>
+
+    </main>
+
+    <Footer client:load />
+  </body>
+</BaseLayout>

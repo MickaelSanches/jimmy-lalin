@@ -57,6 +57,16 @@ const combats = [
     notes: ["2 juges 38-38", "1 juge 39-37 pour Jimmy Lalin"],
     stats: "4-1-1",
   },
+  {
+    id: 7,
+    image: "/img/affichebaraia.webp",
+    adversaire: "Chadi Baraia",
+    date: "04 Octobre 2025",
+    lieu: "Adidas Arena, France",
+    resultat: "-",
+    notes: ["-"],
+    stats: "4-1-1",
+  },
 ];
 
 const Combats = () => {
